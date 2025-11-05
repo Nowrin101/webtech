@@ -1,0 +1,25 @@
+<employees>
+<employee> 
+<id> 1 </id>
+<name> john doe </name>
+<address> H#38,R#3, Banani,Dhaka </address>
+<department> sales </department>
+<salary> $20000 </salary>
+</employee>
+
+<employee>
+<id> 2 </id>
+<name> mark zukernerg </name>
+<address> Flat#A/1,R#20, Mirpur,Dhaka </address>
+<department> Accounts </department>
+<salary> $120000 </salary>
+</employee>
+
+<employee>
+<id> 3 </id>
+<name> Ala Voski </name>
+<address> H#38,R#3,Motijheel </address>
+<department> Human Resource </department>
+<salary> $300000 </salary>
+</employee>
+</employees>
