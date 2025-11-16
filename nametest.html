@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Validation Example</title>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>Name</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="text" id="nameField" value="" onblur="validateName()" />
+                <p id="nameError" style="margin: 5px 0 0 0;"></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="submit" onclick="return test()" />
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+        let nameError = document.getElementById('nameError');
+
+        function validateName() {
+
+            let nameValue = document.getElementById('nameField').value.trim();
+
+            // Rule 1: Cannot be empty
+            if (nameValue === "") {
+                nameError.innerHTML = "Name cannot be empty!";
+                nameError.style.color = "red";
+                return false;
+            }
+
+            // Rule 2: Must contain at least two words
+            if (nameValue.split(" ").length < 2) {
+                nameError.innerHTML = "Name must contain at least two words!";
+                nameError.style.color = "red";
+                return false;
+            }
+
+            // Rule 3 & 4: Allowed chars and must start with a letter
+            // ^[A-Za-z] -> first character must be a letter
+            // [A-Za-z.\-\s]*$ -> rest can be letters, dot, dash, spaces
+            let pattern = /^[A-Za-z][A-Za-z.\-\s]*$/;
+
+            if (!pattern.test(nameValue)) {
+                nameError.innerHTML =
+                    "Invalid name! Must start with a letter and can contain letters, dot(.), dash(-).";
+                nameError.style.color = "red";
+                return false;
+            }
+
+            // All OK
+            nameError.innerHTML = "";
+            return true;
+        }
+
+        function test() {
+            return validateName();
+        }
+
+    </script>
+
+</body>
+</html>
